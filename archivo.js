@@ -1,29 +1,41 @@
-h//SOLICITUD DE NOMBRE Y APELLIDO + SALUDO
+// 1
 
-let nombre = prompt("Ingrese su nombre");
+alert("Pedir número mediante prompt y sumarle otro número en cada repetición,realizando una salida por cada resultado.")
 
-let apellido = prompt("Ingrese su apellido");
+let persona = prompt("Ingrese su nombre completo")
 
-alert("Hola," + " " + nombre + " " + apellido);
+let edad = parseFloat(prompt("ingrese su edad"))
 
-let nombreCompleto = nombre + " " + apellido;
+console.log("presente: " + persona + " " + edad)
 
-console.log("Hola! " + nombreCompleto);
+for (let x = 1; x <= 5; x++) {
+    let total = edad + x
+    alert(total)
+    console.log(total)
+}
 
-//SOLICITUD DE NUMEROS
+// 2
 
-const intereses = 0.55;
+alert("Pedir un texto mediante prompt, concatenar un valor en cada repetición, realizando una salida por cada resultado, hasta que se ingresa 'ESC'.")
 
-let monto = parseFloat(prompt("Ingrese el monto del prestamo que desea solicitar a pagar en 12 cuotas:"));
+while (persona != "ESC") {
+    alert("Bienvenida/o " + persona)
+    persona = prompt("ingrese su nombre:")
+    console.log(persona)
+}
 
-alert("Usted está solicitando un Prestamos por el monto de: $" +  monto + " a pagar en 12 cuotas.");
+// 3
 
-let total = monto + (monto * intereses);
+alert("Pedir un número por prompt, repetir la salida del mensaje 'Hola' la cantidad de veces ingresada.")
 
-let valorCuota = total / 12;
+let numero = parseFloat(prompt("Ingrese un valor del 1 al 5:"))
 
-valorCuota = valorCuota.toFixed(2);
+while (numero < 1 || numero > 5) {
+    numero = parseFloat(prompt("Numero incorrecto, ingrese nuevamente:"))
+    console.log("Ingresó: " + numero)
+}
 
-alert("El valor total a pagar es de: $" + total + ", abonando por mes una cuota de: $" + valorCuota);
-
-console.log("El cliente solicitó un Prestamo por un valor total a pagar de: $" + total + ", abonando por mes una cuota de: $" + valorCuota)
+for (let x = 1; x <= numero; x++) {
+    alert("Hola")
+    console.log("Hola")
+}
