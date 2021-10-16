@@ -1,0 +1,30 @@
+{
+  "name": "f",
+  "version": "1.0.0",
+  "description": "Entrega clase 4",
+  "main": "archivo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PuchikoNyu/javascript.git"
+  },
+  "keywords": [
+    "carrera",
+    "caminata",
+    "maraton",
+    "corredores",
+    "ejercicio",
+    "salud",
+    "ituzaingo",
+    "oeste",
+    "gratis"
+  ],
+  "author": "Florencia Belén De Souza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PuchikoNyu/javascript/issues"
+  },
+  "homepage": "https://github.com/PuchikoNyu/javascript#readme"
+}
