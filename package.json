@@ -1,0 +1,31 @@
+{
+    "name": "stylefytness",
+    "version": "1.0.0",
+    "description": "Entrega clase 4",
+    "main": "archivo.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build-css": "node-sass --include-path scss scss/style.scss css/style.css",
+        "watch-css": "nodemon -e scss -x \"npm run build-css\""
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/PuchikoNyu/javascript.git"
+    },
+    "keywords": [
+        "carrera",
+        "caminata",
+        "maraton",
+        "corredores",
+        "ejercicio",
+        "salud",
+        "ituzaingo",
+        "oeste"
+    ],
+    "author": "Florencia Belén De Souza",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/PuchikoNyu/javascript/issues"
+    },
+    "homepage": "https://github.com/PuchikoNyu/javascript#readme"
+}
