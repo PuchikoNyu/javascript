@@ -5,16 +5,18 @@ const productos = []
 //////
 
 class Productos {
-    constructor(tipo, nombre, color, precio) {
+    constructor(id, tipo, nombre, color, precio, stock) {
+        this.id = id
         this.tipo = tipo
         this.nombre = nombre
         this.color = color
         this.precio = precio
-        
+        this.stock = stock
+
         this.verStock = (cantidad) => {
             cantidad = parseInt(cantidad)
             if (this.stock >= cantidad) {
-                console.log("El usuario desea comprar: " + cantidad + " unidades de: " + this.variedad + " tipo " + this.nombre + " color " + this.color + ".")
+                console.log("El usuario desea comprar: " + cantidad + " unidades de: " + this.tipo + " tipo " + this.nombre + " color " + this.color + ".")
             } else {
                 alert("La solicitud supera el stock disponible.")
                 console.log("La solicitud del usuario supera el stock disponible.")
@@ -25,13 +27,14 @@ class Productos {
 
 //////
 
-productos.push(new Productos("remera", "musculosa", "violeta", 600))
-productos.push(new Productos("remera", "manga corta", "verde", 600))
-productos.push(new Productos("pantalon", "bermuda", "negro", 750))
-productos.push(new Productos("pantalon", "short", "negro", 700))
-productos.push(new Productos("pantalon", "calza", "negro", 1000))
-productos.push(new Productos("botella", "caramañola", "transparente", 500))
-productos.push(new Productos("botella", "caramañola", "aluminio", 700))
+productos.push(new Productos(0, "remera", "musculosa", "violeta", 600, 20))
+productos.push(new Productos(1, "remera", "manga corta", "verde", 600, 20))
+productos.push(new Productos(2, "pantalon", "bermuda", "negro", 750, 20))
+productos.push(new Productos(3, "pantalon", "short", "negro", 700, 20))
+productos.push(new Productos(4, "pantalon", "calza", "negro", 1000, 20))
+productos.push(new Productos(5, "botella", "caramañola plastico", "transparente", 500, 20))
+productos.push(new Productos(6, "botella", "caramañola aluminio", "aluminio", 700, 20))
+productos.push(new Productos(7,"estuche", "porta celular", "gris", 300, 10))
 
 //////
 
@@ -45,11 +48,11 @@ const multiplicar = (a, b) => a * b
 
 function unidad() {
 
-    let unidades = parseFloat(prompt("Ingrese las unidades que desea: (1 a 5)"))
+    let unidades = parseFloat(prompt("Ingrese las unidades que desea: (0 a 5)"))
 
     while (unidades != "ESC") {
 
-        if (unidades >= 1 && unidades <= 5) {
+        if (unidades >= 0 && unidades <= 5) {
             console.log("El usuario ingreso: " + unidades + ".")
             return unidades
         } else {
@@ -74,52 +77,17 @@ function seleccionSuma() {
     let total = 0
     let unidades = 0
     let suma = 0
-    let ingreso = prompt("Ingrese que desea comprar:  remeraM ($400), remeraH ($400), bermuda ($550), short ($550), calza ($700), botellaPlastico ($300), botellaAluminio ($600)")
+    let ingreso = prompt("Ingrese un item por vez, respetando el orden:     1)musculosa     2)manga corta       3)bermuda       4)short      5)calza     6)caramañola plastico      7)caramañola aluminio      8)porta celular      FINALICE CON ENTER")
     console.log("El usuario ingresó: " + ingreso + ".")
 
-    while (ingreso != "ESC") {
+    //
 
-        if (ingreso == "remeraM") {
+    productos.forEach(item => {
+        if (ingreso === item.nombre) {
             unidades = unidad()
-            total = multiplicar(remeraM.precio, unidades)
+            total = multiplicar(item.precio, unidades)
             suma += total
-            remeraM.verStock(unidades)
-            console.log("Total: $" + total + " por " + unidades + " de " + ingreso + ". Total por todo: $" + suma + ".")
-        } else if (ingreso == "remeraH") {
-            unidades = unidad()
-            total = multiplicar(remeraH.precio, unidades)
-            suma += total
-            remeraH.verStock(unidades)
-            console.log("Total: $" + total + " por " + unidades + " de " + ingreso + ". Total por todo: $" + suma + ".")
-        } else if (ingreso == "bermuda") {
-            unidades = unidad()
-            total = multiplicar(bermuda.precio, unidades)
-            suma += total
-            bermuda.verStock(unidades)
-            console.log("Total: $" + total + " por " + unidades + " de " + ingreso + ". Total por todo: $" + suma + ".")
-        } else if (ingreso == "short") {
-            unidades = unidad()
-            total = multiplicar(short.precio, unidades)
-            suma += total
-            short.verStock(unidades)
-            console.log("Total: $" + total + " por " + unidades + " de " + ingreso + ". Total por todo: $" + suma + ".")
-        } else if (ingreso == "calza") {
-            unidades = unidad()
-            total = multiplicar(calza.precio, unidades)
-            suma += total
-            calza.verStock(unidades)
-            console.log("Total: $" + total + " por " + unidades + " de " + ingreso + ". Total por todo: $" + suma + ".")
-        } else if (ingreso == "botellaPlastico") {
-            unidades = unidad()
-            total = multiplicar(botellaPlastico.precio, unidades)
-            suma += total
-            botellaPlastico.verStock(unidades)
-            console.log("Total: $" + total + " por " + unidades + " de " + ingreso + ". Total por todo: $" + suma + ".")
-        } else if (ingreso == "botellaAluminio") {
-            unidades = unidad()
-            total = multiplicar(botellaAluminio.precio, unidades)
-            suma += total
-            botellaAluminio.verStock(unidades)
+            item.verStock(unidades)
             console.log("Total: $" + total + " por " + unidades + " de " + ingreso + ". Total por todo: $" + suma + ".")
         } else {
             alert("Ingreso NO valido")
@@ -127,17 +95,59 @@ function seleccionSuma() {
             console.log("El usuario lleva sumado: $" + suma + ".")
         }
 
-        ingreso = prompt("Ingrese si desea algo más y si no ingrese 'ESC':  remeraM ($400), remeraH ($400), bermuda ($550), short ($550), calza ($700), botellaPlastico ($300), botellaAluminio ($600)")
-
-    }
+        ingreso = prompt("Ingrese un item por vez, respetando el orden:     1)musculosa     2)manga corta       3)bermuda       4)short      5)calza     6)caramañola plastico      7)caramañola aluminio      8)porta celular      FINALICE CON ENTER")
+        console.log("El usuario ingresó: " + ingreso + ".")
+    })
     console.log("El usuario sumó en total: $" + suma + ".")
     return suma
 }
 
-//////
+/////
 
-alert("Bienvenido! A continuación puede seleccionar los productos que desea adquirir como complemento a la carrera: ")
+function ordenamiento() {
+    let filtro = prompt("Listar productos disponibles: ( id / nombre / precio )")
 
+    if (filtro === "nombre") {
+
+        const filtroNombre = productos.slice().sort((a, b) => {
+            if (a.nombre > b.nombre) {
+                return 1
+            } else if (a.nombre < b.nombre) {
+                return -1
+            } else {
+                return 0
+            }
+        })
+
+        console.log(filtroNombre)
+        alert("ORDEN CORRECTO")
+
+    } else if (filtro === "precio") {
+
+        const filtroPrecio = productos.slice().sort((a, b) => a.precio - b.precio)
+
+        console.log(filtroPrecio)
+        alert("ORDEN CORRECTO")
+
+    } else if (filtro === "id") {
+
+        const filtroOrden = productos.slice().sort((a, b) => a.id - b.id)
+
+        console.log(filtroOrden)
+        alert("ORDEN CORRECTO")
+
+    } else {
+
+        alert("ERROR DE INGRESO")
+    }
+
+}
+
+/////
+
+alert("Bienvenido!")
+ordenamiento()
+alert("A continuación puede seleccionar los productos que desea adquirir como complemento de la carrera: ")
 subtotal = seleccionSuma()
 total = multiplicar(subtotal, iva)
 resultado()
