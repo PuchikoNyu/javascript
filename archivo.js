@@ -5,24 +5,92 @@
 // Rubro de la tienda.
 // Luego invocar al menos tres (3) objetos usando esta clase.
 
+// class Tienda{
+//     constructor(nombre, direccion, propietario, rubro){
+//         this.nombre = nombre
+//         this.direccion = direccion
+//         this.propietario = propietario
+//         this.rubro = rubro
+//     }
+// }
 
+// const tienda1 = new Tienda ("Lulu", "Caballito 2010", "Claudia", "kiosko")
+// const tienda2 = new Tienda ("Pancho", "Almagro 15", "Ramoncito", "kiosko")
+// const tienda3 = new Tienda ("Chancho", "Once 10000", "Oscar", "restaurant")
+// const tienda4 = new Tienda ("Parrilla Lolo", "Caseros 24", "Alejandra", "restaurant")
 
-
+// console.log(tienda1)
+// console.log(tienda2)
+// console.log(tienda3)
+// console.log(tienda4)
 
 //Actividad 2 Clase 5 - Solicitar al usuario el registro de cinco (5) tiendas.
 // Emplear la clase Tienda de la actividad 1, para instanciar los objetos en función de las entradas capturadas.
 // Generar una única salida compuesta por la información de los objetos instanciados.
 
+// class Tienda {
+//     constructor(nombre, direccion, propietario, rubro) {
+//         this.nombre = nombre
+//         this.direccion = direccion
+//         this.propietario = propietario
+//         this.rubro = rubro
+//     }
+// }
 
+// let tienda
+// let ingresados = '';
+// for (let i = 0; i < 5; i++) {
+//     tienda = new Tienda(prompt("NOMBRE"),
+//         prompt("DIRECCION"),
+//         prompt("PROPIETARIO"),
+//         prompt("RUBRO"));
 
+//     console.log(tienda)
+
+//     ingresados += "Tienda: " + tienda.nombre + " " + "Dirección: " + tienda.direccion + " " + "Propitario: " + tienda.propietario + " " + "rubro: " + tienda.rubro + "\n";
+// }
+
+// alert(ingresados);
+// console.log(ingresados)
 
 //Actividad 3 Clase 5 - Declarar un método para la clase Tienda con la siguiente cabecera estaAbierto(hora).
 // Este retorna true si la hora enviada está entre las 08 y 12, o entre las 15 y 19. Caso contrario, se retorna false.
 // Luego invocar al menos un (1) objeto usando esta clase, y solicitar al usuario tres (3) horas.
 // Informar por alerta si la tienda está abierta, en función de la hora ingresada.
 
+class Tienda {
+    constructor(nombre, direccion, propietario, rubro) {
+        this.nombre = nombre
+        this.direccion = direccion
+        this.propietario = propietario
+        this.rubro = rubro
+    }
+    estaAbierto(hora) {
+        if (hora >= 8 && hora <= 12) {
+            return true
+        } else if (hora >= 15 && hora <= 19) {
+            return true
+        } else {
+            return false
+        }
+    }
+}
 
+const tienda1 = new Tienda("Lulu", "Caballito 2010", "Claudia", "kiosko")
 
+console.log(tienda1)
+let ingreso
+let hora
+
+for (i = 0; i < 3; i++) {
+    ingreso = parseFloat(prompt("Ingrese una hora: "))
+    hora = tienda1.estaAbierto(ingreso)
+    if (hora = true) {
+        alert("ABIERTO")
+    } else {
+        alert("CERRADO")
+    }
+}
 
 
 //Actividad 4 Clase 5 - Declarar un método para la clase Tienda con la siguiente cabecera esPropietario(nombre).
