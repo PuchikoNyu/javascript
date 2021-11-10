@@ -1,0 +1,114 @@
+//fuentes
+
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital@1&display=swap');
+
+//colores
+
+$bordo: #dc143c;
+$gris: rgb(43, 41, 41);
+$blanco: rgb(248, 248, 248);
+
+//reseteo
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+//etiquetas
+
+body{
+    background: $gris;
+}
+
+header{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: $blanco;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    color: rgb(39, 37, 37);
+}
+
+footer{
+    background: $blanco;
+    position: relative;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+}
+
+h1{
+    font-family: 'Mochiy Pop One', sans-serif;
+    font-size: 20px;
+    text-justify: auto;
+}
+
+p{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+a{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+//clases
+
+.logoSB{
+    width: 200px;
+    height: 200px;
+}
+
+.logoCarrito{
+    width: 40px;
+    height: 40px;
+}
+
+.orden{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-wsp img {
+	position: fixed;
+	width: 55px;
+	height: 55px;
+	line-height: 55px;
+	bottom: 27px;
+	right: 27px;
+	background: #00a800;
+	color: $blanco;
+	border-radius: 50px;
+	text-align: center;
+	font-size: 30px;
+	box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.315);
+	z-index: 100;
+}
+
+.btn-arriba img {
+	position: fixed;
+	width: 55px;
+	height: 55px;
+	line-height: 55px;
+	bottom: 27px;
+	left: 27px;
+	background: $blanco;
+	color: $gris;
+	border-radius: 50px;
+	text-align: center;
+	font-size: 30px;
+	box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.315);
+	z-index: 100;
+}
+
+.filter-b img:hover {
+    filter: brightness(1.2);
+}

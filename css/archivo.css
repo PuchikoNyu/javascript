@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital@1&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: #2b2929;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #f8f8f8;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  color: #272525;
+}
+
+footer {
+  background: #f8f8f8;
+  position: relative;
+  width: 100%;
+  height: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  bottom: 0;
+}
+
+h1 {
+  font-family: 'Mochiy Pop One', sans-serif;
+  font-size: 20px;
+  text-justify: auto;
+}
+
+p {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+a {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.logoSB {
+  width: 200px;
+  height: 200px;
+}
+
+.logoCarrito {
+  width: 40px;
+  height: 40px;
+}
+
+.orden {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.btn-wsp img {
+  position: fixed;
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  bottom: 27px;
+  right: 27px;
+  background: #00a800;
+  color: #f8f8f8;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  -webkit-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.315);
+          box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.315);
+  z-index: 100;
+}
+
+.btn-arriba img {
+  position: fixed;
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  bottom: 27px;
+  left: 27px;
+  background: #f8f8f8;
+  color: #2b2929;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  -webkit-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.315);
+          box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.315);
+  z-index: 100;
+}
+
+.filter-b img:hover {
+  -webkit-filter: brightness(1.2);
+          filter: brightness(1.2);
+}
+/*# sourceMappingURL=archivo.css.map */

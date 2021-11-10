@@ -1,0 +1,19 @@
+{
+  "name": "pjs",
+  "version": "1.0.0",
+  "description": "proyecto java script",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PuchikoNyu/javascript.git"
+  },
+  "author": "Florencia Belén De Souza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PuchikoNyu/javascript/issues"
+  },
+  "homepage": "https://github.com/PuchikoNyu/javascript#readme"
+}
