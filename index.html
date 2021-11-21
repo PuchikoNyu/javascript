@@ -1,145 +1,119 @@
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Sitio dedicado a productos de cosmética natural, eco friendly y vegan de la marca 'Sentida Botánica' por 'Dulce Puchiko'">
-    <meta name="keywords"
-        content="cosmetica natural, vegan, eco friendly, sentida botanica, dulce puchiko, natural, ecologico, cuidadopersonal, biodegradable">
-    <meta name="author" content="Florencia Belén De Souza">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/archivo.css">
-    <link rel="stylesheet" href="./scripts/app.js">
-    <title>Proyecto JS</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Florencia Belén De Souza">
+        <meta name="description"
+            content="Sentida Botánica te ofrece productos naturales para mimarte, cuidándote a vos, al planeta y sus habitantes.">
+        <meta name="keywords"
+            content="ofertas, cosmetica, natural, cuidado, personal, capilar, corporal, apto vegano, cruelty free, sentida botánica, dulce puchiko">
+        <title>Proyecto JS</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="./scss/archivo.css">
+    </head>
 
-<body class="text-white">
+    <body class="text-white">
 
-    <header id="arriba">
-        <div class="orden">
-            <img src="./media/logoSB.png" alt="logo Sentida Botánica" class="logoSB">
-            <h1>Dulce Puchiko</h1>
-        </div>
-        <form action="#">
-            <label for="gsearch">Buscar productos:</label>
-            <input type="search" id="gsearch" name="gsearch">
-            <input type="submit">
-        </form>
-        <input type="image" src="./media/carrito.png" alt="carrito de compra" class="logoCarrito">
-    </header>
+        <!-- HEADER: LOGO, MARCA, BUSCADOR, CARRITO-->
 
-    <div class="container mb-3 mt-3">
-        <label for="BuscadorWeb" class="form-label"></label>
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle w-100" type="button" id="dropdownMenuButton"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Selección de Productos
+        <header id="arriba">
+            <div class="orden">
+                <img src="./media/logoSB.png" alt="logo Sentida Botánica" class="logoSB">
+                <h1>Dulce Puchiko</h1>
+            </div>
+            <form action="#" class="d-flex flex-row justify-items-around px-5">
+                <label for="formulario" class="mx-1">Buscar productos:</label>
+                <input type="text" id="formulario" class="form-control border border-dark rounded mx-2">
+                <button type="submit" class="btn btn-dark btn-info border border-dark rounded mx-1" id="boton">Buscar</button>
+                <ul id="resultado">
+                </ul>
+            </form>
+            <button id="boton-carrito" class="d-flex align-items-center border border-dark rounded-circle p-1">
+                <img src="./media/carrito.png" alt="carrito" class="p-1">
+                <span id="contadorCarrito">0</span>
             </button>
-            <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#almocervical">Almohadilla Cervical</a>
-                <a class="dropdown-item" href="#almolumbar">Almohadilla Lumbar</a>
-                <a class="dropdown-item" href="#fortalecedor">Fortalecedor</a>
-                <a class="dropdown-item" href="#equilibrado">Shampoo Equilibrado</a>
-                <a class="dropdown-item" href="#seco">Shampoo p/Cabello Seco</a>
-                <a class="dropdown-item" href="#graso">Shampoo p/Cabello Graso</a>
-                <a class="dropdown-item" href="#acondicionador">Acondicionador</a>
-                <a class="dropdown-item" href="#serum">Serum Capilar</a>
+        </header>
+
+        <!-- SELECTOR DE PRODUCTOS-->
+
+        <div class="d-flex mt-5 justify-content-around mx-5">
+            <h2>Productos por categoria:</h2>
+            <select id="filtroProductos">
+                <option value="all">Todos</option>
+                <option value="facial">Facial</option>
+                <option value="capilar">Capilar</option>
+                <option value="corporal">Corporal</option>
+                <option value="accesorios">Accesorios</option>
+                <option value="otros">Otros</option>
+            </select>
+        </div>
+
+        <!-- SECCION PRODUCTOS-->
+
+        <section class="container">
+            <div id="contProd" class="row row-cols-3 my-5 justify-content-around"></div>
+        </section>
+
+        <!-- MODAL-->
+
+        <div class="modal-contenedor">
+            <div class="modal-carrito">
+                <h3>Carrito:</h3>
+                <button id="carritoCerrar"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                        fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
+                    </svg></button>
+                <div id="carrito-contenedor"></div>
+                <p class="precioProducto text-dark">Precio total: $<span id="precioTotal" class="text-dark">0</span></p>
+                <button id="vaciar-carrito" class="boton-agregar rounded">Vaciar carrito</button>
             </div>
         </div>
-    </div>
 
-    <section>
-        <h2 class="mt-2 mb-2">Productos:</h2>
-        <div>
-            <h3 class="mt-2">Almohadillas corporales de semillas:</h3>
+        <footer>
             <div>
-                <img src="../media/almohadillaLumbar.jpeg" alt="Almohadilla Lumbar" id="almolumbar"
-                    class="image-fluid w-100 rounded" />
-                <h4 class="mt-2">Almohadilla Lumbar</h4>
+                <a href="http://www.instagram.com" target="_blank" title="IG">Instagram</a>
+                <a href="http://www.facebook.com" target="_blank" title="Facebook">Facebook</a>
+                <a href="https://wa.me/+5491169978309" target="_blank" title="Whatsapp">Whatsapp</a>
             </div>
-            <div>
-                <img src="../media/almohadillaCervical.jpeg" alt="Almohadilla Cervical" id="almocervical"
-                    class="image-fluid w-100 rounded" />
-                <h4 class="mt-2">Almohadilla Cervical/h4>
-            </div>
+        </footer>
+
+        <!-- BOTON FLOTANTE VOLVER A ARRIBA -->
+
+        <div class="btn-arriba filter-b">
+            <a href="#arriba" title="arribaProductos"><img src="../media/arriba.png" alt="arribaProductos"></a>
         </div>
-        <div>
-            <h3 class="mt-2 mb-2">Limpieza Capilar:</h3>
-            <div>
-                <img src="../media/fortalecedor.jpeg" alt="Shampoo sólido Fortalecedor" id="fortalecedor"
-                    class="image-fluid w-100 rounded" />
-                <h4 class="mt-2">Shampoo Sólido Fortalecedor</h4>
-            </div>
-            <div>
-                <img src="../media/equilibrado.jpeg" alt="Shampoo sólido Equilibrado" id="equilibrado"
-                    class="image-fluid w-100 rounded" />
-                <h4 class="mt-2">Shampoo Sólido Equilibrado</h4>
-            </div>
-            <div>
-                <img src="../media/seco.jpg" alt="Shampoo sólido Cabello Seco" id="seco"
-                    class="image-fluid w-100 rounded" />
-                <h4 class="mt-2">Shampoo para Cabello Seco</h4>
-            </div>
-            <div>
-                <img src="" alt="">
-                <h4 class="mt-2">Shampoo para Cabello Graso c/caspa</h4>
-            </div>
-            <div>
-                <img src="../media/graso.jpg" alt="Shampoo sólido Cabello Graso Anti Caspa" id="graso"
-                    class="image-fluid w-100 rounded" />
-                <h4 class="mt-2">Shampoo para Cabello Graso c/caspa</h4>
-            </div>
+
+        <!-- BOTON FLOTANTE WHATSAPP -->
+
+        <div class="btn-wsp filter-b">
+            <a href="https://api.whatsapp.com/send?phone=+541169978309" target="_blank"><img src="../media/whatsapp.png"
+                    alt="Link a WhatsApp"></a>
         </div>
-        <div>
-            <h3 class="mt-2 mb-2">Nutrición Capilar:</h3>
-            <div>
-                <img src="../media/acondicionador.jpg" alt="Acondicionador" id="acondicionador"
-                    class="image-fluid w-100 rounded" />
-                <h4 class="mt-2">Acondicionador</h4>
-            </div>
-            <img src="../media/serum.png" alt="Serum Capilar" id="serum" class="image-fluid w-100 rounded" />
-            <h4 class="mt-2 mb-2">Serum Capilar</h4>
-        </div>
-        </div>
-    </section>
 
-    <footer>
-        <div>
-            <a href="http://www.instagram.com" target="_blank" title="IG">Instagram</a>
-            <a href="http://www.facebook.com" target="_blank" title="Facebook">Facebook</a>
-            <a href="https://wa.me/+5491169978309" target="_blank" title="Whatsapp">Whatsapp</a>
-        </div>
-    </footer>
+        <!-- SCRIPTS -->
 
-    <!-- BOTON FLOTANTE VOLVER A ARRIBA -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+        </script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+        </script>
 
-    <div class="btn-arriba filter-b">
-        <a href="#arriba" title="arribaProductos"><img src="../media/arriba.png" alt="arribaProductos"></a>
-    </div>
+        <script src="./scripts/stock.js"></script>
+        <script src="./scripts/carrito.js"></script>
+        <script src="./scripts/plantillas.js"></script>
+        <script src="./scripts/filtro.js"></script>
+        <script src="./scripts/modal.js"></script>
+        <script src="./scripts/busqueda.js"></script>
 
-    <!-- BOTON FLOTANTE WHATSAPP -->
+    </body>
 
-    <div class="btn-wsp filter-b">
-        <a href="https://api.whatsapp.com/send?phone=+541169978309" target="_blank"><img src="../media/whatsapp.png"
-                alt="Link a WhatsApp"></a>
-    </div>
-
-    <!-- SCRIPTS -->
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-    </script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-    </script>
-
-</body>
-
-</html>
+    </html>
