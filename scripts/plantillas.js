@@ -1,3 +1,5 @@
+const contenedorProductos = document.getElementById('contProd')
+
 const mostrarProductos = (array) => {
     $('#contProd').html('')
     for (let producto of array) {
