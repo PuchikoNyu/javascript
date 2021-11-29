@@ -1,8 +1,7 @@
-// const filtroProductos = document.getElementById('filtroProductos')
+const filtroProductos = document.getElementById('filtroProductos')
 
 const filtrarProductos = () => {
-    // const value = filtroProductos.value
-    const value = $('#filtroProductos').val()
+    const value = filtroProductos.value
 
     if (value === "all") {
         mostrarProductos(stockProductos)
@@ -13,9 +12,6 @@ const filtrarProductos = () => {
 
 }
 
-
-$('#filtroProductos').on('change', () => filtrarProductos())
-
-/* filtroProductos.addEventListener('change', () => {
+filtroProductos.addEventListener('change', () => {
     filtrarProductos()
-}) */
+})

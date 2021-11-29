@@ -1,6 +1,6 @@
 const formulario = document.querySelector("#formulario");
 const boton = document.querySelector("#boton");
-// const resultado = document.querySelector("#resultado") NO VA
+// const resultado = document.querySelector("#resultado")
 
 const filtrar = () => {
 
