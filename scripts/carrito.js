@@ -5,7 +5,11 @@ const precioTotal = document.getElementById('precioTotal')
 
 const botonVaciar = document.getElementById('vaciar-carrito')
 
-const carrito = []
+let carrito = []
+
+if(localStorage.getItem('compra') != undefined){
+    carrito = JSON.parse(localStorage.getItem('compra'))
+}
 
 botonVaciar.addEventListener('click', () => {
     carrito.length = 0
@@ -16,7 +20,6 @@ const agregarAlCarrito = (prodId) => {
     carrito.push(item)
 
     actualizarCarrito()
-    console.log(carrito)
 }
 
 const eliminarDelCarrito = (prodId) => {
@@ -26,11 +29,13 @@ const eliminarDelCarrito = (prodId) => {
     carrito.splice(indice, 1)
 
     actualizarCarrito()
-    console.log(carrito)
 }
 
 const actualizarCarrito = () => {
     contenedorCarrito.innerHTML = ""
+
+    const compra = JSON.stringify(carrito)
+    localStorage.setItem('compra', compra)
 
     carrito.forEach((prod) => {
         const div = document.createElement('div')
@@ -46,4 +51,7 @@ const actualizarCarrito = () => {
 
     contadorCarrito.innerText = carrito.length
     precioTotal.innerText = carrito.reduce((acc, prod) => acc + prod.precio, 0)
+
 }
+
+actualizarCarrito()
