@@ -24,3 +24,4 @@ const mostrarProductos = (array) => {
 }
 
 cargarJSON()
+
