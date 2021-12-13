@@ -17,7 +17,21 @@ botonVaciar.addEventListener('click', () => {
 })
 const agregarAlCarrito = (prodId) => {
     const item = stockProductos.find((prod) => prod.id === prodId)
-    carrito.push(item)
+
+    const found = carrito.find((prod) => prod.id === prodId)
+
+    if(!found){
+        const {id, nombre, precio} = item
+        const itemParaCarrito = {
+            id,
+            nombre,
+            precio,
+            cantidad: 1
+        }
+        carrito.push(itemParaCarrito)
+    } else {
+        found.cantidad++
+    }   
 
     actualizarCarrito()
 
@@ -59,16 +73,17 @@ const actualizarCarrito = () => {
         const div = document.createElement('div')
         div.className = "productoEnCarrito text-dark"
         div.innerHTML = `
-                    <p>${prod.nombre}</p>
-                    <p>Precio: $${prod.precio}</p>
-                    <button onclick="eliminarDelCarrito(${prod.id})" class="boton-eliminar rounded"><i class="fas fa-trash-alt"></i></button>
+                    <p class= "col-6">${prod.nombre}</p>
+                    <p class= "col-2">${prod.cantidad} u.</p>
+                    <p class= "col-3">Precio: $${prod.precio}</p>
+                    <button onclick="eliminarDelCarrito(${prod.id})" class="boton-eliminar rounded col-1"><i class="fas fa-trash-alt"></i></button>
                 `
 
         contenedorCarrito.appendChild(div)
     })
 
     contadorCarrito.innerText = carrito.length
-    precioTotal.innerText = carrito.reduce((acc, prod) => acc + prod.precio, 0)
+    precioTotal.innerText = carrito.reduce((acc, prod) => acc + (prod.precio*prod.cantidad), 0)
 
 }
 

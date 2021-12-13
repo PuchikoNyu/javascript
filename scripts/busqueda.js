@@ -15,6 +15,7 @@ const filtrar = () => {
                     <img src=${producto.img} alt="${producto.nombre}" class="img-thumbnail">
                     <h3>${producto.nombre}</h3>
                     <p>Tipo: ${producto.tipo}</p>
+                    <p> Variedad: ${producto.variedad} </p>
                     <p class="precioProducto">Precio: $${producto.precio}</p>
                     <button onclick="agregarAlCarrito(${producto.id})" class="agregar-carrito rounded">Agregar <i class="fas fa-shopping-cart"></i></button>
         `
