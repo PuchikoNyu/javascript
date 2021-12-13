@@ -37,7 +37,7 @@
         "subcategoria": "shampoo",
         "variedad": "solido",
         "tipo": "seco",
-        "nombre": "Shampoo Sólido para Cabello Seco",
+        "nombre": "Shampoo: Cabello Seco",
         "precio": 900,
         "img": "./media/seco.jpeg",
         "stock": 150
@@ -48,7 +48,7 @@
         "subcategoria": "shampoo",
         "variedad": "solido",
         "tipo": "fortalecedor",
-        "nombre": "Shampoo Sólido Fortalecedor",
+        "nombre": "Shampoo: Fortalecedor",
         "precio": 900,
         "img": "./media/fortalecedor.jpeg",
         "stock": 150
@@ -59,7 +59,7 @@
         "subcategoria": "shampoo",
         "variedad": "solido",
         "tipo": "equilibrado",
-        "nombre": "Shampoo Sólido Equilibrado",
+        "nombre": "Shampoo: Equilibrado",
         "precio": 900,
         "img": "./media/equilibrado.jpeg",
         "stock": 150
@@ -70,7 +70,7 @@
         "subcategoria": "shampoo",
         "variedad": "solido",
         "tipo": "graso",
-        "nombre": "Shampoo Sólido para Cabello Graso y Anti-Caspa",
+        "nombre": "Shampoo: Cabello Graso/Anti-Caspa",
         "precio": 900,
         "img": "./media/graso.jpeg",
         "stock": 150
@@ -81,7 +81,7 @@
         "subcategoria": "acondicionador",
         "variedad": "solido",
         "tipo": "acondicionador",
-        "nombre": "Acondicionador Sólido",
+        "nombre": "Acondicionador",
         "precio": 1000,
         "img": "./media/acondicionador.jpeg",
         "stock": 150
@@ -114,7 +114,7 @@
         "subcategoria": "crema",
         "variedad": "manos",
         "tipo": "extra nutritiva",
-        "nombre": "Crema para Manos Extra-Nutritiva",
+        "nombre": "Crema p/ Manos Extra-Nutri",
         "precio": 750,
         "img": "./media/creMan.jpeg",
         "stock": 100
@@ -257,7 +257,7 @@
         "subcategoria": "peines",
         "variedad": "madera",
         "tipo": "simple",
-        "nombre": "Peine para Cabello, Varios Modelos Simples",
+        "nombre": "Peine para Cabello",
         "precio": 650,
         "img": "./media/peineMadera.jpeg",
         "stock": 100
@@ -290,7 +290,7 @@
         "subcategoria": "esponja",
         "variedad": "vegetal",
         "tipo": "exfoliante",
-        "nombre": "Esponja Vegetal Exfoliante",
+        "nombre": "Esponja Veg. Exfoliante",
         "precio": 150,
         "img": "./media/espVeg.jpeg",
         "stock": 200
@@ -334,7 +334,7 @@
         "subcategoria": "porta cepillo",
         "variedad": "bambu",
         "tipo": "portable",
-        "nombre": "Estuche para Cepillo de Dientes",
+        "nombre": "Estuche Cepillo de Dientes",
         "precio": 900,
         "img": "./media/estucheCep.jpeg",
         "stock": 200
@@ -367,7 +367,7 @@
         "subcategoria": "almohadilla",
         "variedad": "semillas",
         "tipo": "grande",
-        "nombre": "Almohadilla de Semillas Grande",
+        "nombre": "Almohadilla de Semillas Gde.",
         "precio": 1550,
         "img": "./media/almGrande.jpeg",
         "stock": 50
