@@ -7,19 +7,37 @@ const botonVaciar = document.getElementById('vaciar-carrito')
 
 let carrito = []
 
-if(localStorage.getItem('compra') != undefined){
+if (localStorage.getItem('compra') != undefined) {
     carrito = JSON.parse(localStorage.getItem('compra'))
 }
 
 botonVaciar.addEventListener('click', () => {
     carrito.length = 0
     actualizarCarrito()
+
 })
+
 const agregarAlCarrito = (prodId) => {
     const item = stockProductos.find((prod) => prod.id === prodId)
     carrito.push(item)
 
     actualizarCarrito()
+
+    Toastify({
+        text: `${item.nombre} \n Artículo agregado correctamente`,
+        duration: 3000,
+        gravity: "top",
+        position: "right",
+        stopOnFocus: true,
+        style: {
+            background: "#fafafa",
+            border: "solid 1px #000",
+            color: "#000",
+            "border-radius": "3px",
+            "text-align": "center",
+        }
+    }).showToast();
+
 }
 
 const eliminarDelCarrito = (prodId) => {
@@ -29,6 +47,7 @@ const eliminarDelCarrito = (prodId) => {
     carrito.splice(indice, 1)
 
     actualizarCarrito()
+
 }
 
 const actualizarCarrito = () => {
