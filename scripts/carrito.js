@@ -14,14 +14,14 @@ if (localStorage.getItem('compra') != undefined) {
 botonVaciar.addEventListener('click', () => {
     carrito.length = 0
     actualizarCarrito()
-
 })
-
 const agregarAlCarrito = (prodId) => {
     const item = stockProductos.find((prod) => prod.id === prodId)
     carrito.push(item)
 
     actualizarCarrito()
+
+    //TOASTIFY
 
     Toastify({
         text: `${item.nombre} \n Artículo agregado correctamente`,
@@ -47,7 +47,6 @@ const eliminarDelCarrito = (prodId) => {
     carrito.splice(indice, 1)
 
     actualizarCarrito()
-
 }
 
 const actualizarCarrito = () => {
