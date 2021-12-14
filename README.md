@@ -1,4 +1,4 @@
-# javascript
+# Curso de JavaScript
 
 Mi nombre es Florencia Belén De Souza.
 
