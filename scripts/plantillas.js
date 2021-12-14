@@ -2,7 +2,7 @@ let stockProductos = []
 
 const contenedorProductos = document.getElementById('contProd')
 const cargarJSON = async () => {
-    const stock = await fetch('../stock.json')
+    const stock = await fetch('/stock.json')
     let stockData = await stock.json()
     stockProductos = stockData
     mostrarProductos(stockProductos)
